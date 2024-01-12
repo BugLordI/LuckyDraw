@@ -1,0 +1,33 @@
+{
+  // 欢迎标题
+  "Welcome": "路漫漫其修远兮，吾将上下而求索",
+  // 欢迎标语字体颜色
+  "WelcomeForeground": "255,255,255",
+  // 刷新频率，单位毫秒
+  "WelcomeRefreshFrequency": 100,
+  // 背景图片,建议1920*1080
+  "Background": "Backgroud\\background.jpg",
+  // 是否可以重复中将
+  "RepeatParticipation": false,
+  // 标题栏是否可见
+  "TitleBarVisibility": false,
+  // 奖项配置
+  "AwardConfigurations": [
+    {
+      "Label": "一等奖",
+      "Number": 1,
+      // 顺序，数字越小，最先执行
+      "order": 3
+    },
+    {
+      "Label": "二等奖",
+      "Number": 3,
+      "order": 2
+    },
+    {
+      "Label": "三等奖",
+      "Number": 5,
+      "order": 1
+    }
+  ]
+}

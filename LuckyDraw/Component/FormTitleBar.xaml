@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="LuckyDraw.Component.FormTitleBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:language="clr-namespace:LuckyDraw.Language"
+             mc:Ignorable="d" 
+             x:Name="Root"
+             MinWidth="962"
+             Height="39"
+             IsHitTestVisible="True"
+            >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Resources/Styles/TitleBarStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Width="Auto">
+        <DockPanel Width="Auto">
+            <Label VerticalAlignment="Center">
+                <Label.Content>
+                    <DockPanel>
+                        <Image 
+                            Width="25" 
+                            Height="25" 
+                            DockPanel.Dock="Left" 
+                            Source="{Binding Icon,  ElementName=Root}"
+                            Visibility="{Binding ShowIcon, ElementName=Root}"/>
+                        <TextBlock Text="{Binding Title, ElementName=Root}" 
+            DockPanel.Dock="Right" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="#FF0078D4"/>
+                    </DockPanel>
+                </Label.Content>
+            </Label>
+            <DockPanel Height="Auto" HorizontalAlignment="Right" VerticalAlignment="Center" Width="Auto">
+                <Button
+                     ToolTip="{Binding MinimizeButtonToolTip,ElementName=Root}"
+                     WindowChrome.IsHitTestVisibleInChrome="True"
+                     x:Name="minimizeBtn"
+                     HorizontalContentAlignment="Center" 
+                     VerticalAlignment="Center" 
+                     VerticalContentAlignment="Center" 
+                     Visibility="{Binding ShowMinimize, ElementName=Root}" 
+                     Click="minimizeBtn_Click"
+                     Style="{StaticResource TitleBarBtn}"
+                     Height="39"
+                     Width="39"
+                     >
+                    <Label Width="24" Height="24" VerticalAlignment="Top" HorizontalAlignment="Center" HorizontalContentAlignment="Center" >
+                        <Line StrokeThickness="1" Stroke="#FF0078D4" X1="0" Y1="12" X2="24" Y2="12" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Label>
+                </Button>
+                <Button
+                    ToolTip="{Binding MaximizeButtonToolTip,ElementName=Root}"
+                    WindowChrome.IsHitTestVisibleInChrome="True"
+                    x:Name="closeBtn"
+                    HorizontalContentAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    VerticalContentAlignment="Center" 
+                    Visibility="{Binding ShowMaximize, ElementName=Root}" 
+                    Click="maximizeBtn_Click"
+                    Style="{StaticResource TitleBarBtn}"
+                    Height="39"
+                    Width="39" 
+                    >
+                    <Label HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center">
+                        <Rectangle StrokeThickness="1"  Stroke="#FF0078D4" Width="12" Height="12" />
+                    </Label>
+                </Button>
+                <Button
+                    ToolTip="{Binding CloseButtonToolTip,ElementName=Root}"
+                    WindowChrome.IsHitTestVisibleInChrome="True"
+                    x:Name="maximizeBtn"
+                    HorizontalContentAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    VerticalContentAlignment="Center" 
+                    Visibility="{Binding ShowClose, ElementName=Root}" 
+                    Click="closeBtn_Click"
+                    Style="{StaticResource TitleBarCloseBtn}"
+                    Height="39"
+                    Width="39"
+                    >
+                    <Label VerticalAlignment="Center" Width="22" Height="22" Background="Transparent" VerticalContentAlignment="Center">
+                        <Label.Content>
+                            <Path StrokeThickness="1" Fill="#FF0078D4" Stroke="#FF0078D4" Data="M 0 0 L 24 24 M 0 24 L 24 0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Label.Content>
+                    </Label>
+                </Button>
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</UserControl>
